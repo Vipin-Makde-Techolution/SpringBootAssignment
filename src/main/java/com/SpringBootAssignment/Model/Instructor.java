@@ -4,15 +4,18 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonIgnoreType;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Entity
 @Table(name = "INSTRUCTOR")
 @JsonIgnoreProperties({"course"})
+@Builder
 public class Instructor {
 
     @Id
@@ -22,11 +25,14 @@ public class Instructor {
     private String departmentName;
     
     private String headedBy;
-    
+
+    @NotNull
     private String firstName;
-    
+
+    @NotNull
     private String lastName;
-    
+
+    @NotNull
     private String phone;
 
 

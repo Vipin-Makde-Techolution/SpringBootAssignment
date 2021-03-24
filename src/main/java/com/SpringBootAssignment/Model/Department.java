@@ -1,6 +1,7 @@
 package com.SpringBootAssignment.Model;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -11,6 +12,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table( name = "DEPARTMENT")
+@Builder
 public class Department {
 
     @Id

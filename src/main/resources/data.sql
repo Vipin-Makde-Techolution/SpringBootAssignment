@@ -8,9 +8,9 @@ insert into COURSE values(4,'Computer Technology','7','Advance Java',2);
 insert into COURSE values(5,'Computer Technology','4','Ruby',2);
 insert into COURSE values(6,'Computer Technology','48','Data Science',2);
 
-insert into student values(11,'Anjali','askdj','109487811');
-insert into student values(12,'Rohit','Sharma','7328640876');
-insert into student values(13,'Viru','sehvag','28379865645');
+insert into student values(11,'Anjali','askdj','1249812740');
+insert into student values(12,'Rohit','Sharma','9871287234');
+insert into student values(13,'Viru','sehvag','9882364821');
 
 insert into student_course values(11,1);
 insert into student_course values(11,2);

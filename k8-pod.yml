@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: dev-mcb-assignment
+  name: dev-mcb-assignment
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: dev-mcb-assignment
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        run: dev-mcb-assignment
+    spec:
+      terminationGracePeriodSeconds: 60000
+      containers:
+        - image: gcr.io/mcbassign-221612/mcb-assignment-dev
+          imagePullPolicy: Always
+          name: dev-mcb-assignment
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          resources:
+            limits:
+              cpu: 150m
+              memory: 1Gi
+            requests:
+              cpu: 100m
+              memory: 900Mi
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    run: dev-mcb-assignment
+  name: dev-mcb-assignment
+  namespace: default
+
+spec:
+  externalTrafficPolicy: Cluster
+  ports:
+    - name: dev-mcb-assignment
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
+  selector:
+    run: dev-mcb-assignment
+  type: NodePort
+
+
+

@@ -1,0 +1,11 @@
+apiVersion: skaffold/v1beta3
+kind: Config
+build:
+  artifacts:
+    - image: gcr.io/betherenow-221612/honda-imageman-dev
+  local:
+    useBuildkit: false
+deploy:
+  kubectl:
+    manifests:
+      - k8-pod.yml
